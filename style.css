@@ -1,0 +1,157 @@
+/* --- Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+body {
+    background-color: #0a0a0c;
+    color: #f7f7f7;
+    overflow-x: hidden;
+}
+
+/* --- Navigation --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: rgba(10, 10, 12, 0.8);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #7B2CBF;
+    text-shadow: 0 0 10px rgba(123, 44, 191, 0.5);
+}
+
+.nav-links a {
+    color: #a0a0a0;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #7B2CBF;
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.glow-text {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, #f7f7f7, #7B2CBF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #8a8a8a;
+    margin-bottom: 40px;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    font-size: 0.9rem;
+    color: #7B2CBF;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* --- Layout Container --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+
+/* --- Sections --- */
+section {
+    margin-bottom: 150px;
+}
+
+.intro-section {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 150px auto;
+}
+
+.intro-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.intro-section p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #b0b0b0;
+}
+
+/* --- Split-Screen Shift Cards --- */
+.split-section {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.split-card {
+    flex: 1;
+    background: #121216;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 12px;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.split-card:hover {
+    transform: translateY(-8px);
+    border-color: #7B2CBF;
+}
+
+.split-card h3 {
+    font-size: 1.5rem;
+    color: #7B2CBF;
+    margin-bottom: 15px;
+}
+
+.split-card p {
+    color: #a0a0a0;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .split-section {
+        flex-direction: column;
+    }
+    .glow-text {
+        font-size: 2.5rem;
+    }
+}
