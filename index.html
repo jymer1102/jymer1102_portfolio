@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jymer1102 | Home</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">jymer1102</div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="creations.html">Creations</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero" data-aos="fade-zoom-in" data-aos-duration="1500">
+        <h1 class="glow-text">Design is how it works.</h1>
+        <p class="subtitle">Welcome to my digital corner.</p>
+        <div class="scroll-indicator">↓ Scroll to Explore</div>
+    </header>
+
+    <main class="container">
+        
+        <section class="intro-section" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+            <h2>👋 Hey, I'm Jymer</h2>
+            <p>I'm a creator and designer building high-performance, visually striking spaces on the internet. I focus on creating smooth user experiences with clean, modern aesthetics.</p>
+        </section>
+
+        <section class="split-section">
+            <div class="split-card left" data-aos="fade-right" data-aos-duration="1200">
+                <h3>The Philosophy</h3>
+                <p>Minimalism isn't about lack of things. It's about the perfect amount of things. Every detail is intentional.</p>
+            </div>
+            <div class="split-card right" data-aos="fade-left" data-aos-duration="1200">
+                <h3>The Tech</h3>
+                <p>Leveraging clean layouts and modern visual cues to build interfaces that feel satisfying to interact with.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize the scroll animations
+        AOS.init({
+            once: false, // Set to false so animations repeat when scrolling up/down
+            mirror: true // Elements animate out while scrolling past them
+        });
+    </script>
+</body>
+</html>
