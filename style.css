@@ -195,6 +195,13 @@ nav {
     font-weight: 500;
     color: var(--text-1);
     letter-spacing: -0.02em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.25s var(--ease);
+}
+
+.logo:hover {
+    color: var(--accent-bright);
 }
 
 .logo::before {
@@ -266,7 +273,15 @@ nav {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(10, 10, 12, 0) 55%, var(--bg) 100%);
+    background: linear-gradient(
+        180deg,
+        rgba(10, 10, 12, 0) 0%,
+        rgba(10, 10, 12, 0) 40%,
+        rgba(10, 10, 12, 0.35) 62%,
+        rgba(10, 10, 12, 0.7) 78%,
+        rgba(10, 10, 12, 0.92) 90%,
+        var(--bg) 100%
+    );
 }
 
 .hero {
@@ -526,7 +541,6 @@ section:last-child {
     border: 1px solid rgba(255, 255, 255, 0.08);
     transition: transform 0.35s var(--ease), background 0.35s var(--ease);
     overflow: hidden;
-    padding: 12px;
 }
 
 /* Logos keep their natural proportions — never stretched or cropped */
