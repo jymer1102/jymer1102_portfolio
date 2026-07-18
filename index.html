@@ -59,5 +59,19 @@
             easing: 'ease-out-cubic'
         });
     </script>
+
+    <script>
+        // Make the hover glow follow the cursor (or finger, on touch) as it
+        // moves across each card instead of staying fixed at the center.
+        document.querySelectorAll('.split-card').forEach(function (card) {
+            card.addEventListener('pointermove', function (e) {
+                var rect = card.getBoundingClientRect();
+                var x = ((e.clientX - rect.left) / rect.width) * 100;
+                var y = ((e.clientY - rect.top) / rect.height) * 100;
+                card.style.setProperty('--mx', x + '%');
+                card.style.setProperty('--my', y + '%');
+            });
+        });
+    </script>
 </body>
 </html>
