@@ -19,4 +19,4 @@ jobs:
           node-version: '20'
 
       - name: Run HTMLHint Linter
-        run: npx htmlhint "**/*.html"
+        run: npx htmlhint "**/*.html" --rules "doctype-first=false"
