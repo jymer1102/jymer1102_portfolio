@@ -1,0 +1,20 @@
+name: Check Links
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  linkChecker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # Scans all Markdown and HTML files for broken paths/URLs
+          args: --verbose --no-progress './**/*.md' './**/*.html'
