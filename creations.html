@@ -137,31 +137,23 @@
             easing: 'ease-out-cubic'
         });
     </script>
+    
     <script>
-    window.addEventListener('scroll', function() {
-        const scrollIndicator = document.getElementById('scroll-indicator');
-        const creationsSection = document.getElementById('creations-section');
-        
-      <script>
-    window.addEventListener('scroll', function() {
-        const indicator = document.getElementById('scroll-indicator');
-        const container = document.getElementById('creations-container');
-        
-        // If the user scrolls down more than 10 pixels
-        if (window.scrollY > 10) {
-            // Hide the indicator smoothly
-            indicator.style.opacity = '0';
+        window.addEventListener('scroll', function() {
+            const indicator = document.getElementById('scroll-indicator');
+            const container = document.getElementById('creations-container');
             
-            // Reveal the creations grid smoothly
-            container.style.opacity = '1';
-            container.style.transform = 'translateY(0)';
-        } else {
-            // Optional: Hide creations and show indicator again if they scroll all the way back up
-            indicator.style.opacity = '0.6';
-            container.style.opacity = '0';
-            container.style.transform = 'translateY(20px)';
-        }
-    });
-</script>
+            // If the user scrolls down more than 10 pixels
+            if (window.scrollY > 10) {
+                indicator.style.opacity = '0';
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+            } else {
+                indicator.style.opacity = '0.6';
+                container.style.opacity = '0';
+                container.style.transform = 'translateY(20px)';
+            }
+        });
+    </script>
 </body>
 </html>
