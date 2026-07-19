@@ -1,30 +1,6 @@
-# ==========================================
-# Site Settings
-# ==========================================
 title: "jymer1102 Site"
 description: "A website about me."
-theme: jekyll-theme-minimal # Activates the theme
-
-# ==========================================
-# URL & Link Settings
-# ==========================================
-# This is the line that strips '.html' and forces pretty folders:
-permalink: pretty 
-
-# Leave baseurl empty if your site is at username.github.io.
-# If your site is at username.github.io/my-repo, change it to: "/my-repo"
-baseurl: "jymer1102_website" 
-url: "" 
-
-# ==========================================
-# Build Settings
-# ==========================================
-markdown: kramdown
-plugins:
-  - jekyll-optional-front-matter # Lets Jekyll read standard .html files without front-matter
-
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules/
-  - vendor/
+theme: jekyll-theme-minimal
+permalink: pretty
+baseurl: "/jymer1102_website"
+url: ""
