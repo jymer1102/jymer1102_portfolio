@@ -13,11 +13,11 @@
 <body>
 
     <nav id="top">
-        <a href="index.html#top" class="logo">jymer1102</a>
+        <a href="{{ '/' | relative_url }}#top" class="logo">jymer1102</a>
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="creations.html">Creations</a>
-            <a href="contact.html" class="active">Contact</a>
+            <a href="{{ '/' | relative_url }}">Home</a>
+            <a href="{{ '/creations/' | relative_url }}">Creations</a>
+            <a href="{{ '/contact/' | relative_url }}" class="active">Contact</a>
         </div>
     </nav>
 
