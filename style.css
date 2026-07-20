@@ -662,7 +662,7 @@ section:last-child {
     text-shadow: 0 0 10px var(--accent-glow);
 }
 
-/* Modernized Contact Form Styles */
+/* Contact Form Styles */
 .contact-section {
     padding: 20px 0 60px;
     position: relative;
@@ -738,33 +738,36 @@ textarea.form-control {
     min-height: 140px;
 }
 
+/* Card-Styled Submit Button */
 .submit-btn {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     padding: 14px 24px;
-    background-color: var(--accent);
+    background: linear-gradient(160deg, var(--bg-card-from), var(--bg-card-to));
     color: var(--text-1);
     font-family: var(--font-body);
     font-size: 0.95rem;
     font-weight: 600;
-    border: 1px solid var(--border-hover);
+    border: 1px solid var(--border);
     border-radius: var(--radius-md);
     cursor: pointer;
-    transition: background-color 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
-    box-shadow: 0 4px 12px rgba(30, 86, 224, 0.2);
+    transition: transform 0.35s var(--ease), 
+                border-color 0.35s var(--ease), 
+                box-shadow 0.35s var(--ease),
+                color 0.35s var(--ease);
 }
 
 .submit-btn:hover {
-    background-color: var(--accent-bright);
-    color: var(--bg);
-    box-shadow: 0 0 18px var(--accent-glow);
-    transform: translateY(-2px);
+    border-color: var(--border-hover);
+    color: var(--accent-bright);
+    box-shadow: 0 16px 40px rgba(30, 86, 224, 0.18);
+    transform: translateY(-4px);
 }
 
 .submit-btn:active {
-    transform: translateY(0);
+    transform: translateY(-1px);
 }
 
 /* --------------------------------------------------------------------------
