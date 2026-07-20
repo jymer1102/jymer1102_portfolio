@@ -814,5 +814,5 @@ html, body {
 
 /* Custom pointer cursor */
 a, button, .nav-cta, .btn-primary, select, input[type="submit"] {
-  cursor: url('/jymer1102_website/images/cursor/custom-j-cursor-pointer.png?v=2') 0 0, pointer;
+  cursor: url('/jymer1102_website/images/cursor/custom-j-cursor-pointer.png?v=3') 0 0, pointer;
 }
