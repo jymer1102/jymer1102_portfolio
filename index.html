@@ -131,5 +131,42 @@
         }
     });
 </script>
+    <script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const favicon = document.getElementById('animated-favicon');
+        if (!favicon) return;
+
+        const img = new Image();
+        img.src = favicon.href;
+
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+            // Standard crisp favicon resolution
+            canvas.width = 32; 
+            canvas.height = 32;
+            const ctx = canvas.getContext('2d');
+
+            // Config configurations for your 240 frame animation
+            let currentFrame = 0;
+            const totalFrames = 240; 
+
+            function play() {
+                ctx.clearRect(0, 0, 32, 32);
+                
+                // Draws the frame segment down the image loop line
+                ctx.drawImage(img, 0, 0, 32, 32); 
+                
+                // Force pushes the live rendered framework frame to Chrome
+                favicon.href = canvas.toDataURL('image/png');
+                
+                currentFrame = (currentFrame + 1) % totalFrames;
+                
+                // ~24 frames per second (40ms interval)
+                setTimeout(play, 40); 
+            }
+            play();
+        };
+    });
+</script>
 </body>
 </html>
