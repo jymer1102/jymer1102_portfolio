@@ -2,15 +2,20 @@
     const FRAME_COUNT = 94;
     const FRAME_INTERVAL_MS = 40; // ~25 fps
 
-    // Get base path relative to site root
-    const basePath = '/images/favicon/frames/';
+    // 1. Grab the existing link tag to steal its correct base path
+    const existingFavicon = document.getElementById('animated-favicon');
+    if (!existingFavicon) return;
+
+    // 2. Extract the directory path dynamically (handles Jekyll subfolders perfectly)
+    const currentHref = existingFavicon.getAttribute('href');
+    const baseDir = currentHref.substring(0, currentHref.lastIndexOf('/') + 1);
 
     const frameUrls = [];
     for (let i = 1; i <= FRAME_COUNT; i++) {
-        frameUrls.push(`${basePath}j_${i}.gif`);
+        frameUrls.push(`${baseDir}j_${i}.gif`);
     }
 
-    // Preload frames in background so there's no flicker
+    // Preload frames in background
     frameUrls.forEach(src => { 
         const img = new Image(); 
         img.src = src; 
