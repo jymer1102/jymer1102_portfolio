@@ -1,7 +1,7 @@
 # jymer1102_website
 <div align="center">
 
-![README Banner](images/jymer1102_header.GIF)
+![README Banner](images/jymer1102_header.gif)
 
 # 👋 Hi, I'm jymer1102!
 
