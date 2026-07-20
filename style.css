@@ -809,7 +809,7 @@ footer {
 
 /* Custom default cursor for the entire site */
 html, body {
-  cursor: url("{{ '/images/cursor/custom-cursor.png' | relative_url }}"), default;
+  cursor: url("{{ '/images/cursor/custom-j-cursor.png' | relative_url }}"), default;
 }
 
 /* Custom pointer cursor for clickable elements */
@@ -819,5 +819,5 @@ button,
 .btn-primary, 
 select, 
 input[type="submit"] {
-  cursor: url("{{ '/images/cursor/custom-cursor-pointer.png' | relative_url }}"), pointer;
+  cursor: url("{{ '/images/cursor/custom-j-cursor-pointer.png' | relative_url }}"), pointer;
 }
