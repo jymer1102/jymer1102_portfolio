@@ -806,3 +806,18 @@ footer {
         transform: translate(-50%, -6px);
     }
 }
+
+/* Custom default cursor for the entire site */
+html, body {
+  cursor: url("{{ '/images/cursor/custom-cursor.png' | relative_url }}"), default;
+}
+
+/* Custom pointer cursor for clickable elements */
+a, 
+button, 
+.nav-cta, 
+.btn-primary, 
+select, 
+input[type="submit"] {
+  cursor: url("{{ '/images/cursor/custom-cursor-pointer.png' | relative_url }}"), pointer;
+}
