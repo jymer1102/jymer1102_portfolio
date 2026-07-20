@@ -122,15 +122,12 @@
             const banner = document.getElementById('banner-container');
             if (banner) {
                 // The animation loop takes exactly 3 seconds
-                const gifDuration = 10000; 
+                const gifDuration = 9500; 
 
                 setTimeout(() => {
                     banner.classList.add('fade-out');
                     
-                    // Completely drop from viewport layout after the 1-second CSS transition ends
-                    setTimeout(() => {
-                        banner.style.display = 'none';
-                    }, 1000); 
+                   
                 }, gifDuration);
             }
         });
