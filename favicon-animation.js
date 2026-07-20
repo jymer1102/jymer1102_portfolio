@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
     for (let i = 1; i <= totalFrames; i++) {
         const img = new Image();
         // Construct the path to your sequential images
-        img.src = `/images/favicon/frames/j_${i}.png`; 
+       img.src = `/images/favicon/frames/j_${i}.gif`;
         
         img.onload = () => {
             imagesLoadedCount++;
