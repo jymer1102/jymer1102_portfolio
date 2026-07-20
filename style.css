@@ -7,10 +7,10 @@
      4.  Navigation
      5.  Hero (Home)
      6.  Intro + Split Section (Home)
-     7.  Page Header (Creations / Contact)
+     7.  Page Header (Creations / Connect)
      8.  Project Cards & Gallery
      9.  Project Icons & Logo Images
-     10. Contact Page
+     10. Connect Page
      11. Footer
      12. Responsive
    ========================================================================== */
@@ -388,7 +388,7 @@ section:last-child {
 }
 
 /* --------------------------------------------------------------------------
-   7. Page Header (Creations / Contact)
+   7. Page Header (Creations / Connect)
    -------------------------------------------------------------------------- */
 .page-header {
     padding: 160px 24px 20px;
@@ -611,9 +611,9 @@ section:last-child {
 }
 
 /* --------------------------------------------------------------------------
-   10. Contact Page
+   10. Connect Page
    -------------------------------------------------------------------------- */
-.contact-panel {
+.connect-panel {
     max-width: 620px;
     margin: 0 auto;
     background: linear-gradient(160deg, var(--bg-card-from), var(--bg-card-to));
@@ -622,14 +622,14 @@ section:last-child {
     padding: 48px;
 }
 
-.contact-list {
+.connect-list {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 22px;
 }
 
-.contact-list li {
+.connect-list li {
     display: flex;
     align-items: center;
     gap: 16px;
@@ -637,12 +637,12 @@ section:last-child {
     border-bottom: 1px solid var(--border);
 }
 
-.contact-list li:last-child {
+.connect-list li:last-child {
     border-bottom: none;
     padding-bottom: 0;
 }
 
-.contact-label {
+.connect-label {
     font-family: var(--font-mono);
     font-size: 0.78rem;
     color: var(--text-3);
@@ -652,14 +652,14 @@ section:last-child {
     letter-spacing: 0.05em;
 }
 
-.contact-value {
+.connect-value {
     color: var(--text-1);
     font-weight: 500;
     text-decoration: none;
     transition: color 0.25s var(--ease);
 }
 
-.contact-value:hover {
+.connect-value:hover {
     color: var(--accent-bright);
     text-shadow: 0 0 10px var(--accent-glow);
 }
@@ -720,17 +720,17 @@ footer {
         padding-top: 130px;
     }
 
-    .contact-panel {
+    .connect-panel {
         padding: 30px 24px;
     }
 
-    .contact-list li {
+    .connect-list li {
         flex-direction: column;
         align-items: flex-start;
         gap: 6px;
     }
 
-    .contact-label {
+    .connect-label {
         width: auto;
     }
 }
