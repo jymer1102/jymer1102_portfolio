@@ -254,15 +254,16 @@ nav {
     width: 100%;
     height: clamp(240px, 34vw, 460px);
     overflow: hidden;
-}
-
-transition: opacity 1.0s var(--ease);
+    transition: opacity 1.0s var(--ease), visibility 1.0s var(--ease);
     opacity: 1;
+    visibility: visible;
 }
 
+/* This targets the banner element directly and smoothly hides it */
 .home-banner.fade-out {
-    opacity: 0;
-    pointer-events: none; /* Prevents users from accidentally clicking invisible layout blocks */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 
 .home-banner img {
@@ -309,7 +310,6 @@ transition: opacity 1.0s var(--ease);
     font-size: 1.15rem;
     color: var(--text-2);
 }
-
 /* --------------------------------------------------------------------------
    6. Intro + Split Section (Home)
    -------------------------------------------------------------------------- */
