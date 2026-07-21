@@ -75,9 +75,6 @@ I'm a creator and designer building my digital corner of the internet. Welcome t
   <a href="https://music-profile.rayriffy.com">
     <img src="https://music-profile.rayriffy.com/theme/dark.svg?uid=001396.90916c02bf7f45439497c8295a54ba75.1626" alt="Apple Music Profile" height="150" />
   </a>
-  <a href="https://spotify-recently-played-readme.vercel.app/api?user=31iju4owavykz7a2ah2n5nvwewky">
-    <img src="https://spotify-recently-played-readme.vercel.app/api?user=31iju4owavykz7a2ah2n5nvwewky" alt="Spotify Recently Played" height="150" />
-  </a>
 
 </div>
 
