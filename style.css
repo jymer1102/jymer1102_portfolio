@@ -724,6 +724,25 @@ section:last-child {
     transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
 
+/* Custom Light-Grey Dropdown Arrow for Select */
+select.form-control {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a3a3ac' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+    padding-right: 42px;
+    cursor: pointer;
+}
+
+/* Custom Dropdown Option Items Background/Text */
+select.form-control option {
+    background-color: var(--bg-raised);
+    color: var(--text-1);
+}
+
 .form-control::placeholder {
     color: var(--text-3);
 }
