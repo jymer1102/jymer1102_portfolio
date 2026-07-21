@@ -48,14 +48,14 @@
         </div>
     </nav>
 
-    <header class="page-header" data-aos="fade-up" data-aos-duration="900" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; box-sizing: border-box; position: relative;">
-        <p class="eyebrow" style="order: 1;">portfolio / creations</p>
-        <h1 class="glow-text" style="order: 2;">My Creations<span class="cursor">_</span></h1>
-        <p class="subtitle" style="order: 3;">A collection of things I've built and designed.</p>
+    <header class="page-header" data-aos="fade-up" data-aos-duration="900">
+        <p class="eyebrow">portfolio / creations</p>
+        <h1 class="glow-text">My Creations<span class="cursor">_</span></h1>
+        <p class="subtitle">A collection of things I've built and designed.</p>
         <p id="scroll-indicator">Scroll down to explore ↓</p>
     </header>
 
-    <main class="container" id="creations-container" style="opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease;">
+    <main class="container reveal-on-scroll" id="creations-container">
         <div class="project-grid">
 
             <a href="https://nova-ai-mk9x.onrender.com/" target="_blank" rel="noopener" class="project-card js-interactive-container" data-aos="fade-up" data-aos-duration="700">
@@ -159,32 +159,9 @@
             easing: 'ease-out-cubic'
         });
     </script>
-    
-    <script>
-        function updateScrollState() {
-            const indicator = document.getElementById('scroll-indicator');
-            const container = document.getElementById('creations-container');
 
-            if (window.scrollY > 10) {
-                if (indicator) indicator.classList.add('is-hidden');
-                if (container) {
-                    container.style.opacity = '1';
-                    container.style.transform = 'translateY(0)';
-                }
-            } else {
-                if (indicator) indicator.classList.remove('is-hidden');
-                if (container) {
-                    container.style.opacity = '0';
-                    container.style.transform = 'translateY(20px)';
-                }
-                AOS.refresh();
-            }
-        }
+    <script src="{{ '/scroll-reveal.js' | relative_url }}"></script>
 
-        window.addEventListener('scroll', updateScrollState, { passive: true });
-        updateScrollState();
-    </script>
-    
     <script src="{{ '/favicon-animation.js' | relative_url }}"></script>
 </body>
 </html>
