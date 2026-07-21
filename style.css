@@ -3,7 +3,7 @@
    Table of Contents:
      1.  Fonts & Design Tokens
      2.  Global Reset & Base
-     3.  Utility / Shared Patterns (eyebrows, glow text, buttons)
+     3.  Utility / Shared Patterns (eyebrows, glow text, interactive glow utility)
      4.  Navigation
      5.  Hero (Home)
      6.  Intro + Split Section (Home)
@@ -13,6 +13,7 @@
      10. Connect Page & Contact Form
      11. Footer
      12. Responsive
+     13. Scroll Indicator & Custom Cursors
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -92,7 +93,6 @@ img {
     display: block;
 }
 
-/* Consistent, visible keyboard focus for accessibility */
 a:focus-visible,
 button:focus-visible {
     outline: 2px solid var(--accent-bright);
@@ -167,6 +167,10 @@ button:focus-visible {
     text-decoration: none;
     transition: color 0.25s var(--ease), transform 0.25s var(--ease), text-shadow 0.25s var(--ease);
 }
+
+ease);
+}
+
 
 /* --------------------------------------------------------------------------
    4. Navigation
@@ -352,29 +356,6 @@ section:last-child {
     border: 1px solid var(--border);
     padding: 38px;
     border-radius: var(--radius-lg);
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.4s var(--ease), border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
-}
-
-.split-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), var(--accent-dim), transparent 45%);
-    opacity: 0;
-    transition: opacity 0.4s var(--ease);
-    pointer-events: none;
-}
-
-.split-card:hover::before {
-    opacity: 1;
-}
-
-.split-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--border-hover);
-    box-shadow: 0 16px 40px rgba(30, 86, 224, 0.12);
 }
 
 .split-card h3 {
@@ -435,32 +416,9 @@ section:last-child {
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 34px;
-    position: relative;
-    overflow: hidden;
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-    transition: transform 0.35s var(--ease), border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
-}
-
-.project-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), var(--accent-dim), transparent 45%);
-    opacity: 0;
-    transition: opacity 0.4s var(--ease);
-    pointer-events: none;
-}
-
-.project-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--border-hover);
-    box-shadow: 0 18px 44px rgba(30, 86, 224, 0.14);
-}
-
-.project-card:hover::before {
-    opacity: 1;
 }
 
 .project-header {
@@ -620,48 +578,9 @@ section:last-child {
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 48px;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 
-/* Mouse Radial Glow Overlay for Connect Panel & Form */
-.connect-panel::before,
-.form-container::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), var(--accent-dim), transparent 45%);
-    opacity: 0;
-    transition: opacity 0.4s var(--ease);
-    pointer-events: none;
-    z-index: 1;
-}
-
-.connect-panel:hover::before,
-.form-container:hover::before {
-    opacity: 1;
-}
-
-.connect-panel:hover,
-.form-container:hover,
-.form-container:focus-within {
-    border-color: var(--border-hover);
-}
-
-.connect-panel:hover,
-.form-container:focus-within {
-    box-shadow: 0 16px 40px rgba(30, 86, 224, 0.12);
-}
-
-/* Keeps Content Layered Above Radial Glow */
-.connect-list,
-.form-container form {
-    position: relative;
-    z-index: 2;
-}
-
-/* Connect List Layout */
+/* Restored Connect List Layout */
 .connect-list {
     list-style: none;
     display: flex;
@@ -694,11 +613,21 @@ section:last-child {
     align-items: center;
 }
 
+.connect-label i {
+    margin-right: 6px;
+    color: var(--accent-bright);
+}
+
 .connect-value {
     color: var(--text-1);
     font-weight: 500;
     text-decoration: none;
     transition: color 0.25s var(--ease);
+}
+
+.connect-value i {
+    margin-right: 6px;
+    color: var(--accent-bright);
 }
 
 .connect-value:hover {
@@ -715,9 +644,6 @@ section:last-child {
     border-radius: var(--radius-lg);
     padding: 44px;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 
 /* Base Gray Inputs & Textarea */
@@ -777,6 +703,50 @@ section:last-child {
 .submit-btn:active {
     transform: translateY(-1px);
 }
+
+/* Custom Glow Caret Container */
+.glow-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.glow-input-hidden {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    z-index: 2;
+    cursor: text;
+}
+
+.glow-input-display {
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+.glow-input-hidden:focus + .glow-input-display {
+    border-color: var(--border-hover);
+    box-shadow: 0 0 16px var(--accent-glow);
+}
+
+.custom-caret {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background-color: var(--accent-bright);
+    box-shadow: 
+        0 0 6px var(--accent-bright),
+        0 0 12px var(--accent-bright),
+        0 0 20px var(--accent-glow);
+    margin-left: 1px;
+    animation: caretBlink 1s infinite;
+}
+
+@keyframes caretBlink {
+    0%, 45% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
 /* --------------------------------------------------------------------------
    11. Footer
    -------------------------------------------------------------------------- */
@@ -853,7 +823,6 @@ footer {
     }
 }
 
-/* Desktop customization */
 @media (min-width: 993px) {
     .container {
         padding-top: 170px;
@@ -893,7 +862,7 @@ footer {
 }
 
 /* --------------------------------------------------------------------------
-   13. Scroll Indicator
+   13. Scroll Indicator, Cursors & Modals
    -------------------------------------------------------------------------- */
 #scroll-indicator {
     position: fixed;
@@ -928,12 +897,10 @@ footer {
     }
 }
 
-/* Custom default cursor */
 html, body {
   cursor: url('/jymer1102_website/images/cursor/custom-j-cursor.png') 0 0, default;
 }
 
-/* Custom pointer cursor */
 a, button, .nav-cta, .btn-primary, select, input[type="submit"], .submit-btn {
   cursor: url('/jymer1102_website/images/cursor/custom-j-cursor-pointer.png') 0 0, pointer;
 }
@@ -1030,77 +997,4 @@ a, button, .nav-cta, .btn-primary, select, input[type="submit"], .submit-btn {
 
 .modal-close-btn:hover {
     color: var(--text-1);
-}
-
-/* Custom Glow Caret Container */
-.glow-input-wrapper {
-    position: relative;
-    width: 100%;
-}
-
-/* Hidden input that captures real typing */
-.glow-input-hidden {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    z-index: 2;
-    cursor: text;
-}
-
-/* Display element matching .form-control styles */
-.glow-input-display {
-    width: 100%;
-    padding: 14px 18px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    color: var(--text-1);
-    background-color: var(--bg-raised);
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    pointer-events: none;
-    transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
-}
-
-.glow-input-hidden:focus + .glow-input-display {
-    border-color: var(--border-hover);
-    box-shadow: 0 0 16px var(--accent-glow);
-}
-
-/* The custom glowing caret matched to your exact site blue */
-.custom-caret {
-    display: inline-block;
-    width: 2px;
-    height: 1.2em;
-    background-color: var(--accent-bright);
-    
-    /* Radiant glow matching var(--accent-glow) and deep electric blue */
-    box-shadow: 
-        0 0 6px var(--accent-bright),
-        0 0 12px var(--accent-bright),
-        0 0 20px var(--accent-glow);
-    
-    margin-left: 1px;
-    animation: caretBlink 1s infinite;
-}
-
-@keyframes caretBlink {
-    0%, 45% { 
-        opacity: 1; 
-    }
-    50%, 100% { 
-        opacity: 0; 
-    }
-}
-
-.connect-value i {
-    margin-right: 6px;
-    color: var(--accent-bright); /* Gives the icons your electric blue theme tint */
-}
-
-.connect-label i {
-    margin-right: 6px;
-    color: var(--accent-bright);
 }
