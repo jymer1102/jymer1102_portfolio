@@ -73,7 +73,7 @@
 html, body {
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden; /* Prevents any side-scrolling / left shift on mobile */
+    overflow-x: hidden;
     position: relative;
 }
 
@@ -153,7 +153,7 @@ button:focus-visible {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    word-break: break-word; /* Prevents overflow on tiny viewports */
+    word-break: break-word;
 }
 
 .cursor {
@@ -940,9 +940,19 @@ footer {
     letter-spacing: 0.05em;
     color: var(--text-2);
     z-index: 999;
-    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+    transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
     pointer-events: none;
     animation: indicatorPulse 2s infinite var(--ease);
+}
+
+.connect-section #scroll-indicator {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    text-align: center;
+    margin: 32px auto 0;
+    animation: connectIndicatorPulse 2s infinite var(--ease);
 }
 
 #scroll-indicator.is-hidden {
@@ -958,6 +968,17 @@ footer {
     50% {
         opacity: 0.7;
         transform: translate(-50%, -6px);
+    }
+}
+
+@keyframes connectIndicatorPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateY(-6px);
     }
 }
 
