@@ -50,11 +50,11 @@
                 <ul class="connect-list">
                     <li>
                         <span class="connect-label">Email</span>
-                        <a href="mailto:theoneandonly@jymer1102.me" class="connect-value">theoneandonly@jymer1102.me</a>
+                        <a href="mailto:contact@jymer1102.me" class="connect-value">contact@jymer1102.me</a>
                     </li>
                     <li>
                         <span class="connect-label">Phone</span>
-                        <a href="tel:+1234567890" class="connect-value">+1 (234) 567-890</a>
+                        <a href="#" id="phone-link" class="connect-value">+1 (234) 567-890</a>
                     </li>
                     <li>
                         <span class="connect-label">Linktree</span>
@@ -100,6 +100,22 @@
             </div>
         </section>
 
+        <div id="phone-modal" class="phone-modal">
+            <div class="phone-modal-content">
+                <h3>Contact via Phone</h3>
+                <p>Choose an option below:</p>
+                <div class="phone-modal-actions">
+                    <a href="tel:+1234567890" class="modal-btn call-btn">
+                        <i class="fa-solid fa-phone"></i> Call
+                    </a>
+                    <a href="sms:+1234567890" class="modal-btn text-btn">
+                        <i class="fa-solid fa-comment-sms"></i> Text
+                    </a>
+                </div>
+                <button id="close-modal" class="modal-close-btn">Cancel</button>
+            </div>
+        </div>
+
     </main>
 
     <footer>jymer1102 — built with care.</footer>
@@ -112,6 +128,31 @@
             easing: 'ease-out-cubic'
         });
     </script>
+
+    <script>
+        const phoneLink = document.getElementById('phone-link');
+        const phoneModal = document.getElementById('phone-modal');
+        const closeModal = document.getElementById('close-modal');
+
+        // Open Modal
+        phoneLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            phoneModal.classList.add('is-visible');
+        });
+
+        // Close Modal on Cancel Button
+        closeModal.addEventListener('click', () => {
+            phoneModal.classList.remove('is-visible');
+        });
+
+        // Close Modal when clicking outside the content box
+        phoneModal.addEventListener('click', (e) => {
+            if (e.target === phoneModal) {
+                phoneModal.classList.remove('is-visible');
+            }
+        });
+    </script>
+
     <script src="{{ '/favicon-animation.js' | relative_url }}"></script>
     
 </body>
