@@ -611,84 +611,8 @@ section:last-child {
 /* --------------------------------------------------------------------------
    10. Connect Page & Contact Form
    -------------------------------------------------------------------------- */
-.connect-panel {
-    max-width: 620px;
-    margin: 0 auto 40px auto;
-    background: linear-gradient(160deg, var(--bg-card-from), var(--bg-card-to));
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 48px;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
-}
 
-/* Restored Cursor Glow Overlay without altering internal content layout */
-.connect-panel::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), var(--accent-dim), transparent 45%);
-    opacity: 0;
-    transition: opacity 0.4s var(--ease);
-    pointer-events: none;
-    z-index: 1;
-}
-
-.connect-panel:hover::before {
-    opacity: 1;
-}
-
-.connect-panel:hover {
-    border-color: var(--border-hover);
-    box-shadow: 0 16px 40px rgba(30, 86, 224, 0.12);
-}
-
-/* Ensures content list stays cleanly above the background glow layer */
-.connect-list {
-    position: relative;
-    z-index: 2;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-}
-
-.connect-list li {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding-bottom: 22px;
-    border-bottom: 1px solid var(--border);
-}
-
-.connect-list li:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-.connect-label {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    color: var(--text-3);
-    width: 90px;
-    flex-shrink: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.connect-value {
-    color: var(--text-1);
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 0.25s var(--ease);
-}
-
-.connect-value:hover {
-    color: var(--accent-bright);
-    text-shadow: 0 0 10px var(--accent-glow);
-}
-/* Form Container */
+/* Outer Form Container */
 .form-container {
     max-width: 620px;
     margin: 0 auto;
@@ -702,7 +626,7 @@ section:last-child {
     transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 
-/* Cursor Glow Overlay for Form Container */
+/* Cursor Glow Background Layer (Sits behind inputs & button) */
 .form-container::before {
     content: '';
     position: absolute;
@@ -711,37 +635,31 @@ section:last-child {
     opacity: 0;
     transition: opacity 0.4s var(--ease);
     pointer-events: none;
+    z-index: 1; /* Positioned beneath inputs */
 }
 
 .form-container:hover::before {
     opacity: 1;
 }
 
-/* Border activates on hover or active input focus, reverts immediately on blur */
+.form-container:hover,
 .form-container:focus-within {
     border-color: var(--border-hover);
+}
+
+.form-container:focus-within {
     box-shadow: 0 16px 40px rgba(30, 86, 224, 0.12);
 }
 
-.form-container:hover {
-    border-color: var(--border-hover);
+/* Ensure the form contents stay cleanly on layer above glow */
+.form-container form {
+    position: relative;
+    z-index: 2;
 }
 
-.form-group {
-    margin-bottom: 24px;
-}
-
-.form-group label {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-2);
-    margin-bottom: 8px;
-}
-
-.form-control {
+/* Base Gray Inputs & Textarea */
+.form-control,
+.glow-input-display {
     width: 100%;
     padding: 14px 18px;
     border: 1px solid var(--border);
@@ -749,12 +667,9 @@ section:last-child {
     font-family: var(--font-body);
     font-size: 0.95rem;
     color: var(--text-1);
-    background-color: var(--bg-raised);
+    background-color: var(--bg-raised); /* Solid dark gray background */
     box-sizing: border-box;
     transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
-    
-    /* Sets the typing caret/cursor to electric blue */
-    caret-color: var(--accent-bright);
 }
 
 .form-control::placeholder {
@@ -765,34 +680,17 @@ section:last-child {
     outline: none;
     border-color: var(--accent-bright);
     box-shadow: 0 0 0 3px var(--accent-glow);
+    caret-color: var(--accent-bright);
 }
 
-select.form-control {
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 5 5-5z' fill='%23a3a3ac'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 18px center;
-}
-
-select.form-control option {
-    background-color: var(--bg-raised);
-    color: var(--text-1);
-}
-
-textarea.form-control {
-    resize: vertical;
-    min-height: 140px;
-}
-
-/* Card-Styled Submit Button */
+/* Base Gray Submit Button */
 .submit-btn {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     padding: 14px 24px;
-    background: linear-gradient(160deg, var(--bg-card-from), var(--bg-card-to));
+    background: linear-gradient(160deg, var(--bg-card-from), var(--bg-card-to)); /* Dark gray card gradient */
     color: var(--text-1);
     font-family: var(--font-body);
     font-size: 0.95rem;
