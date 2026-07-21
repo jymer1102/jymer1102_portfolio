@@ -46,7 +46,7 @@
     <main class="container">
         
         <section class="connect-section" data-aos="fade-up" data-aos-duration="900">
-            <div class="connect-panel">
+            <div class="connect-panel js-interactive-container">
                 <ul class="connect-list">
                     <li>
                         <span class="connect-label"><i class="fa-solid fa-at"></i> Email</span>
@@ -65,7 +65,7 @@
         </section>
 
         <section class="contact-section" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
-            <div class="form-container">
+            <div class="form-container js-interactive-container">
                 <form action="https://formspree.io/f/xlgqnkqn" method="POST">
                     
                     <div class="form-group">
@@ -181,16 +181,24 @@
             });
         });
     </script>
-  
+
     <script>
-        // Tracks mouse position across all card & form containers for the radial glow
-        document.querySelectorAll('.connect-panel, .form-container, .split-card, .project-card').forEach(container => {
-            container.addEventListener('mousemove', (e) => {
+        const interactiveContainers = document.querySelectorAll('.js-interactive-container');
+
+        interactiveContainers.forEach(container => {
+            const updateGlowPosition = (clientX, clientY) => {
                 const rect = container.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
+                const x = clientX - rect.left;
+                const y = clientY - rect.top;
                 container.style.setProperty('--mx', `${x}px`);
                 container.style.setProperty('--my', `${y}px`);
+            };
+
+            container.addEventListener('mousemove', (e) => updateGlowPosition(e.clientX, e.clientY));
+            container.addEventListener('pointerdown', (e) => updateGlowPosition(e.clientX, e.clientY));
+            container.addEventListener('touchmove', (e) => {
+                const touch = e.touches[0];
+                if (touch) updateGlowPosition(touch.clientX, touch.clientY);
             });
         });
     </script>
