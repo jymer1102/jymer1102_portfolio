@@ -41,6 +41,7 @@
         <p class="eyebrow">portfolio / connect</p>
         <h1 class="glow-text">Connect<span class="cursor">_</span></h1>
         <p class="subtitle">Reach out via socials or send a direct message.</p>
+        <p id="scroll-indicator">Scroll down to explore ↓</p>
     </header>
 
     <main class="container">
@@ -200,6 +201,19 @@
                 const touch = e.touches[0];
                 if (touch) updateGlowPosition(touch.clientX, touch.clientY);
             });
+        });
+    </script>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const indicator = document.getElementById('scroll-indicator');
+            if (indicator) {
+                if (window.scrollY > 10) {
+                    indicator.classList.add('is-hidden');
+                } else {
+                    indicator.classList.remove('is-hidden');
+                }
+            }
         });
     </script>
 
