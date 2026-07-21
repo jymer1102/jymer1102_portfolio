@@ -1,0 +1,204 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jymer1102 | Playground</title>
+<meta name="description" content="A blank HTML/CSS/JS playground to try out code for fun — nothing is saved.">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css">
+<link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+
+<link id="animated-favicon" rel="icon" type="image/png" href="{{ '/images/favicon/frames/j_1.gif' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/images/favicon/apple-touch-icon.png' | relative_url }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav id="top">
+<a href="{{ '/' | relative_url }}#top" class="logo">jymer1102</a>
+<div class="nav-links">
+<a href="{{ '/' | relative_url }}">Home</a>
+<a href="{{ '/creations/' | relative_url }}">Creations</a>
+<a href="{{ '/connect/' | relative_url }}">Connect</a>
+<a href="{{ '/playground/' | relative_url }}" class="active">Playground</a>
+</div>
+</nav>
+
+<header class="page-header" data-aos="fade-up" data-aos-duration="900">
+<p class="eyebrow">portfolio / try code</p>
+<h1 class="glow-text">Try Code For Yourself<span class="cursor">_</span></h1>
+<p class="subtitle">A blank HTML / CSS / JS sandbox — nothing you write here is saved.</p>
+<p id="scroll-indicator">Scroll down to explore ↓</p>
+</header>
+
+<main class="container reveal-on-scroll" id="playground-container">
+<section class="playground-section" data-aos="fade-up" data-aos-duration="800">
+<div class="playground-wrapper js-interactive-container">
+
+<div class="playground-toolbar">
+<div class="playground-tabs"></div>
+<div class="playground-actions">
+<button id="run-btn" class="playground-btn primary" type="button">Run ▶</button>
+<button id="reset-btn" class="playground-btn" type="button">Reset</button>
+</div>
+</div>
+
+<div class="playground-editors">
+<div class="playground-pane">
+<div class="playground-pane-label">HTML</div>
+<textarea id="html-code" class="playground-editor" spellcheck="false"></textarea>
+</div>
+<div class="playground-pane">
+<div class="playground-pane-label">CSS</div>
+<textarea id="css-code" class="playground-editor" spellcheck="false"></textarea>
+</div>
+<div class="playground-pane">
+<div class="playground-pane-label">JS</div>
+<textarea id="js-code" class="playground-editor" spellcheck="false"></textarea>
+</div>
+</div>
+
+<div class="playground-preview-wrap">
+<div class="playground-preview-label">Preview</div>
+<iframe id="preview-frame" class="playground-preview" title="Live code preview" sandbox="allow-scripts allow-modals" referrerpolicy="no-referrer"></iframe>
+</div>
+
+</div>
+</section>
+</main>
+
+<footer>jymer1102 — built with care.</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({
+once: false,
+mirror: true,
+duration: 800,
+easing: 'ease-out-cubic'
+});
+</script>
+
+<script>
+const interactiveContainers = document.querySelectorAll('.js-interactive-container');
+
+interactiveContainers.forEach(container => {
+const updateGlowPosition = (clientX, clientY) => {
+const rect = container.getBoundingClientRect();
+const x = clientX - rect.left;
+const y = clientY - rect.top;
+container.style.setProperty('--mx', `${x}px`);
+container.style.setProperty('--my', `${y}px`);
+};
+
+container.addEventListener('mousemove', (e) => updateGlowPosition(e.clientX, e.clientY));
+container.addEventListener('pointerdown', (e) => updateGlowPosition(e.clientX, e.clientY));
+container.addEventListener('touchmove', (e) => {
+const touch = e.touches[0];
+if (touch) updateGlowPosition(touch.clientX, touch.clientY);
+});
+});
+</script>
+
+<script>
+(function () {
+const DEFAULT_HTML = `<h1>Hello, world!</h1>
+<p>Edit the HTML, CSS, and JS boxes above and watch the preview update.</p>
+<button id="demo-btn">Click me</button>`;
+
+const DEFAULT_CSS = `body {
+  font-family: sans-serif;
+  padding: 24px;
+  color: #222;
+}
+
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #1E56E0;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}`;
+
+const DEFAULT_JS = `document.getElementById('demo-btn').addEventListener('click', () => {
+  alert('Hello from your code!');
+});`;
+
+const htmlBox = document.getElementById('html-code');
+const cssBox = document.getElementById('css-code');
+const jsBox = document.getElementById('js-code');
+const frame = document.getElementById('preview-frame');
+const runBtn = document.getElementById('run-btn');
+const resetBtn = document.getElementById('reset-btn');
+
+function loadDefaults() {
+htmlBox.value = DEFAULT_HTML;
+cssBox.value = DEFAULT_CSS;
+jsBox.value = DEFAULT_JS;
+}
+
+function runCode() {
+const doc = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>${cssBox.value}</style>
+</head>
+<body>
+${htmlBox.value}
+<script>
+try {
+${jsBox.value}
+} catch (err) {
+document.body.insertAdjacentHTML('beforeend', '<pre style="color:#c0392b;white-space:pre-wrap;font-family:monospace;margin-top:16px;">' + err + '</pre>');
+}
+<\/script>
+</body>
+</html>`;
+frame.srcdoc = doc;
+}
+
+let debounceTimer;
+function scheduleRun() {
+clearTimeout(debounceTimer);
+debounceTimer = setTimeout(runCode, 400);
+}
+
+loadDefaults();
+runCode();
+
+[htmlBox, cssBox, jsBox].forEach((box) => {
+box.addEventListener('input', scheduleRun);
+box.addEventListener('keydown', (e) => {
+if (e.key === 'Tab') {
+e.preventDefault();
+const start = box.selectionStart;
+const end = box.selectionEnd;
+box.value = box.value.substring(0, start) + '  ' + box.value.substring(end);
+box.selectionStart = box.selectionEnd = start + 2;
+scheduleRun();
+}
+});
+});
+
+runBtn.addEventListener('click', runCode);
+resetBtn.addEventListener('click', () => {
+loadDefaults();
+runCode();
+});
+})();
+</script>
+
+<script src="{{ '/scroll-reveal.js' | relative_url }}"></script>
+
+<script src="{{ '/favicon-animation.js' | relative_url }}"></script>
+</body>
+</html>
