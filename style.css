@@ -708,6 +708,9 @@ section:last-child {
     background-color: var(--bg-raised);
     box-sizing: border-box;
     transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+    
+    /* Sets the typing caret/cursor to electric blue */
+    caret-color: var(--accent-bright);
 }
 
 .form-control::placeholder {
