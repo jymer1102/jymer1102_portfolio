@@ -1,77 +1,231 @@
-<header class="page-header" data-aos="fade-up" data-aos-duration="900">
-    <p class="eyebrow">portfolio / connect</p>
-    <h1 class="glow-text">Connect<span class="cursor">_</span></h1>
-    <p class="subtitle">Reach out via socials or send a direct message.</p>
-</header>
-
-<main class="container">
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jymer1102 | Connect</title>
+    <meta name="description" content="Reach out via socials or send a direct message to jymer1102.">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
     
-    <section class="connect-section" data-aos="fade-up" data-aos-duration="900">
-        <div class="connect-panel js-interactive-container">
-            <ul class="connect-list">
-                <li>
-                    <span class="connect-label"><i class="fa-solid fa-at"></i> Email</span>
-                    <a href="mailto:theoneandonly@jymer1102.me" class="connect-value">theoneandonly@jymer1102.me</a>
-                </li>
-                <li>
-                    <span class="connect-label"><i class="fa-solid fa-phone"></i> Phone</span>
-                    <a href="#" id="phone-link" class="connect-value">+1 (234) 567-890</a>
-                </li>
-                <li>
-                    <span class="connect-label"><i class="fa-brands fa-linktree"></i> Linktree</span>
-                    <a href="https://linktr.ee/jymer1102" target="_blank" rel="noopener noreferrer" class="connect-value">linktr.ee/jymer1102</a>
-                </li>
-            </ul>
+    <link id="animated-favicon" rel="icon" type="image/png" href="{{ '/images/favicon/frames/j_1.gif' | relative_url }}">
+    <link rel="apple-touch-icon" href="{{ '/images/favicon/apple-touch-icon.png' | relative_url }}">
+    
+    <meta property="og:title" content="Connect | jymer1102">
+    <meta property="og:description" content="Reach out via socials or send a direct message to jymer1102.">
+    <meta property="og:image" content="https://jymer1102.github.io/jymer1102_portfolio/images/social-card.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Connect | jymer1102">
+    <meta name="twitter:description" content="Reach out via socials or send a direct message to jymer1102.">
+    <meta name="twitter:image" content="https://jymer1102.github.io/jymer1102_portfolio/images/social-card.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav id="top">
+        <a href="{{ '/' | relative_url }}#top" class="logo">jymer1102</a>
+        <div class="nav-links">
+            <a href="{{ '/' | relative_url }}">Home</a>
+            <a href="{{ '/creations/' | relative_url }}">Creations</a>
+            <a href="{{ '/connect/' | relative_url }}" class="active">Connect</a>
         </div>
+    </nav>
 
-        <p id="scroll-indicator">Scroll down to send a message ↓</p>
-    </section>
+    <header class="page-header" data-aos="fade-up" data-aos-duration="900">
+        <p class="eyebrow">portfolio / connect</p>
+        <h1 class="glow-text">Connect<span class="cursor">_</span></h1>
+        <p class="subtitle">Reach out via socials or send a direct message.</p>
+    </header>
 
-    <section class="contact-section" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
-        <div class="form-container js-interactive-container">
-            <form action="https://formspree.io/f/xlgqnkqn" method="POST">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <div class="glow-input-wrapper">
-                        <input type="text" id="name" name="name" class="glow-input-hidden" placeholder="Your Name" required>
-                        <div class="glow-input-display">
-                            <span class="display-text"></span>
-                            <span class="custom-caret" style="display: none;"></span>
+    <main class="container">
+        
+        <section class="connect-section" data-aos="fade-up" data-aos-duration="900">
+            <div class="connect-panel js-interactive-container">
+                <ul class="connect-list">
+                    <li>
+                        <span class="connect-label"><i class="fa-solid fa-at"></i> Email</span>
+                        <a href="mailto:theoneandonly@jymer1102.me" class="connect-value">theoneandonly@jymer1102.me</a>
+                    </li>
+                    <li>
+                        <span class="connect-label"><i class="fa-solid fa-phone"></i> Phone</span>
+                        <a href="#" id="phone-link" class="connect-value">+1 (234) 567-890</a>
+                    </li>
+                    <li>
+                        <span class="connect-label"><i class="fa-brands fa-linktree"></i> Linktree</span>
+                        <a href="https://linktr.ee/jymer1102" target="_blank" rel="noopener noreferrer" class="connect-value">linktr.ee/jymer1102</a>
+                    </li>
+                </ul>
+            </div>
+
+            <p id="scroll-indicator">Scroll down to explore ↓</p>
+        </section>
+
+        <section class="contact-section" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
+            <div class="form-container js-interactive-container">
+                <form action="https://formspree.io/f/xlgqnkqn" method="POST">
+                    
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <div class="glow-input-wrapper">
+                            <input type="text" id="name" name="name" class="glow-input-hidden" placeholder="Your Name" required>
+                            <div class="glow-input-display">
+                                <span class="display-text"></span>
+                                <span class="custom-caret" style="display: none;"></span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <div class="glow-input-wrapper">
-                        <input type="email" id="email" name="_replyto" class="glow-input-hidden" placeholder="name@example.com" required>
-                        <div class="glow-input-display">
-                            <span class="display-text"></span>
-                            <span class="custom-caret" style="display: none;"></span>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <div class="glow-input-wrapper">
+                            <input type="email" id="email" name="_replyto" class="glow-input-hidden" placeholder="name@example.com" required>
+                            <div class="glow-input-display">
+                                <span class="display-text"></span>
+                                <span class="custom-caret" style="display: none;"></span>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" class="form-control">
+                            <option value="General Inquiry">General Inquiry</option>
+                            <option value="Project Proposal">Project Proposal</option>
+                            <option value="Collaboration">Collaboration</option>
+                            <option value="Just Saying Hi">Just Saying Hi</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="Write your message here..." required></textarea>
+                    </div>
+
+                    <input type="hidden" name="_subject" value="New message from jymer1102.me!">
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <div id="phone-modal" class="phone-modal">
+            <div class="phone-modal-content">
+                <h3>Contact via Phone</h3>
+                <p>Choose an option below:</p>
+                <div class="phone-modal-actions">
+                    <a href="tel:+1234567890" class="modal-btn call-btn">
+                        <i class="fa-solid fa-phone"></i> Call
+                    </a>
+                    <a href="sms:+1234567890" class="modal-btn text-btn">
+                        <i class="fa-solid fa-comment-sms"></i> Text
+                    </a>
                 </div>
-
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <select id="subject" name="subject" class="form-control">
-                        <option value="General Inquiry">General Inquiry</option>
-                        <option value="Project Proposal">Project Proposal</option>
-                        <option value="Collaboration">Collaboration</option>
-                        <option value="Just Saying Hi">Just Saying Hi</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" class="form-control" placeholder="Write your message here..." required></textarea>
-                </div>
-
-                <input type="hidden" name="_subject" value="New message from jymer1102.me!">
-
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+                <button id="close-modal" class="modal-close-btn">Cancel</button>
+            </div>
         </div>
-    </section>
 
-</main>
+    </main>
+
+    <footer>jymer1102 — built with care.</footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: false,
+            mirror: true,
+            duration: 900,
+            easing: 'ease-out-cubic'
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY === 0) {
+                AOS.refresh();
+            }
+        }, { passive: true });
+    </script>
+
+    <script>
+        const phoneLink = document.getElementById('phone-link');
+        const phoneModal = document.getElementById('phone-modal');
+        const closeModal = document.getElementById('close-modal');
+
+        phoneLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            phoneModal.classList.add('is-visible');
+        });
+
+        closeModal.addEventListener('click', () => {
+            phoneModal.classList.remove('is-visible');
+        });
+
+        phoneModal.addEventListener('click', (e) => {
+            if (e.target === phoneModal) {
+                phoneModal.classList.remove('is-visible');
+            }
+        });
+    </script>
+
+    <script>
+        document.querySelectorAll('.glow-input-wrapper').forEach(wrapper => {
+            const hiddenInput = wrapper.querySelector('.glow-input-hidden');
+            const displayText = wrapper.querySelector('.display-text');
+            const caret = wrapper.querySelector('.custom-caret');
+
+            hiddenInput.addEventListener('input', () => {
+                displayText.textContent = hiddenInput.value;
+            });
+
+            hiddenInput.addEventListener('focus', () => {
+                caret.style.display = 'inline-block';
+            });
+
+            hiddenInput.addEventListener('blur', () => {
+                caret.style.display = 'none';
+            });
+        });
+    </script>
+
+    <script>
+        const interactiveContainers = document.querySelectorAll('.js-interactive-container');
+
+        interactiveContainers.forEach(container => {
+            const updateGlowPosition = (clientX, clientY) => {
+                const rect = container.getBoundingClientRect();
+                const x = clientX - rect.left;
+                const y = clientY - rect.top;
+                container.style.setProperty('--mx', `${x}px`);
+                container.style.setProperty('--my', `${y}px`);
+            };
+
+            container.addEventListener('mousemove', (e) => updateGlowPosition(e.clientX, e.clientY));
+            container.addEventListener('pointerdown', (e) => updateGlowPosition(e.clientX, e.clientY));
+            container.addEventListener('touchmove', (e) => {
+                const touch = e.touches[0];
+                if (touch) updateGlowPosition(touch.clientX, touch.clientY);
+            });
+        });
+    </script>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const indicator = document.getElementById('scroll-indicator');
+            if (indicator) {
+                if (window.scrollY > 10) {
+                    indicator.classList.add('is-hidden');
+                } else {
+                    indicator.classList.remove('is-hidden');
+                }
+            }
+        });
+    </script>
+
+    <script src="{{ '/favicon-animation.js' | relative_url }}"></script>
+    
+</body>
+</html>
