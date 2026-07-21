@@ -50,15 +50,21 @@
                 <ul class="connect-list">
                     <li>
                         <span class="connect-label">Email</span>
-                        <a href="mailto:theoneandonly@jymer1102.me" class="connect-value">theoneandonly@jymer1102.me</a>
+                        <a href="mailto:theoneandonly@jymer1102.me" class="connect-value">
+                            <i class="fa-solid fa-at"></i> theoneandonly@jymer1102.me
+                        </a>
                     </li>
                     <li>
                         <span class="connect-label">Phone</span>
-                        <a href="#" id="phone-link" class="connect-value">+1 (234) 567-890</a>
+                        <a href="#" id="phone-link" class="connect-value">
+                            <i class="fa-solid fa-phone"></i> +1 (234) 567-890
+                        </a>
                     </li>
                     <li>
                         <span class="connect-label">Linktree</span>
-                        <a href="https://linktr.ee/jymer1102" target="_blank" rel="noopener noreferrer" class="connect-value">linktr.ee/jymer1102</a>
+                        <a href="https://linktr.ee/jymer1102" target="_blank" rel="noopener noreferrer" class="connect-value">
+                            <i class="fa-brands fa-linktree"></i> linktr.ee/jymer1102
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -183,17 +189,17 @@
     </script>
   
     <script>
-    // Tracks mouse position across all card & form containers for the radial glow
-    document.querySelectorAll('.connect-panel, .form-container, .split-card, .project-card').forEach(container => {
-        container.addEventListener('mousemove', (e) => {
-            const rect = container.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            container.style.setProperty('--mx', `${x}px`);
-            container.style.setProperty('--my', `${y}px`);
+        // Tracks mouse position across all card & form containers for the radial glow
+        document.querySelectorAll('.connect-panel, .form-container, .split-card, .project-card').forEach(container => {
+            container.addEventListener('mousemove', (e) => {
+                const rect = container.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                container.style.setProperty('--mx', `${x}px`);
+                container.style.setProperty('--my', `${y}px`);
+            });
         });
-    });
-</script>
+    </script>
 
     <script src="{{ '/favicon-animation.js' | relative_url }}"></script>
     
