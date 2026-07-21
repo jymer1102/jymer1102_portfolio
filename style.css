@@ -13,7 +13,7 @@
      10. Connect Page & Contact Form
      11. Footer
      12. Responsive
-     13. Scroll Indicator & Custom Cursors
+     13. Scroll Indicator, Cursors & Modals
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -28,7 +28,7 @@
     --bg-card-from: #131318;
     --bg-card-to: #17171d;
     --border: rgba(255, 255, 255, 0.07);
-    --border-hover: rgba(30, 86, 224, 0.45);
+    --border-hover: rgba(30, 86, 224, 0.85);
 
     /* Accent (deep electric blue) */
     --accent: #1E56E0;
@@ -168,9 +168,47 @@ button:focus-visible {
     transition: color 0.25s var(--ease), transform 0.25s var(--ease), text-shadow 0.25s var(--ease);
 }
 
-ease);
+/* --- Global Interactive Card Glow & Active Border Lighting --- */
+.js-interactive-container {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: 1px solid var(--border);
+    transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 
+.js-interactive-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        600px circle at var(--mx, 50%) var(--my, 50%), 
+        var(--accent-glow), 
+        transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.35s var(--ease);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.js-interactive-container:hover::before,
+.js-interactive-container:active::before,
+.js-interactive-container:focus-within::before {
+    opacity: 1;
+}
+
+.js-interactive-container:hover,
+.js-interactive-container:active,
+.js-interactive-container:focus-within {
+    border-color: var(--border-hover) !important;
+    box-shadow: 0 0 25px rgba(30, 86, 224, 0.35);
+}
+
+.js-interactive-container > * {
+    position: relative;
+    z-index: 2;
+}
 
 /* --------------------------------------------------------------------------
    4. Navigation
@@ -213,6 +251,12 @@ nav {
 .logo::after {
     content: '/>';
     color: var(--accent-bright);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Aligns menu items to the far right */
 }
 
 .nav-links a {
@@ -353,9 +397,8 @@ section:last-child {
     flex: 1 1 calc(50% - 28px);
     min-width: 300px;
     background: linear-gradient(160deg, var(--bg-card-from), var(--bg-card-to));
-    border: 1px solid var(--border);
-    padding: 38px;
     border-radius: var(--radius-lg);
+    padding: 38px;
 }
 
 .split-card h3 {
@@ -413,7 +456,6 @@ section:last-child {
     align-items: center;
     gap: 32px;
     background: linear-gradient(160deg, var(--bg-card-from) 0%, var(--bg-card-to) 100%);
-    border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 34px;
     text-decoration: none;
@@ -575,12 +617,11 @@ section:last-child {
     max-width: 620px;
     margin: 0 auto 40px auto;
     background: linear-gradient(160deg, var(--bg-card-from), var(--bg-card-to));
-    border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 48px;
 }
 
-/* Restored Connect List Layout */
+/* Connect List Layout */
 .connect-list {
     list-style: none;
     display: flex;
@@ -640,13 +681,12 @@ section:last-child {
     max-width: 620px;
     margin: 0 auto;
     background: linear-gradient(160deg, var(--bg-card-from), var(--bg-card-to));
-    border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 44px;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* Base Gray Inputs & Textarea */
+/* Inputs, Selects & Textarea */
 .form-control,
 .glow-input-display {
     width: 100%;
@@ -672,7 +712,7 @@ section:last-child {
     caret-color: var(--accent-bright);
 }
 
-/* Base Gray Submit Button */
+/* Submit Button */
 .submit-btn {
     display: inline-flex;
     justify-content: center;
