@@ -724,6 +724,12 @@ section:last-child {
     transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
 
+/* Textarea Specific Resizing */
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+    max-height: 400px;
+}
 /* Custom Light-Grey Dropdown Arrow for Select */
 select.form-control {
     appearance: none;
