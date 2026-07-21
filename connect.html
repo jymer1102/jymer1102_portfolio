@@ -70,12 +70,24 @@
                     
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+                        <div class="glow-input-wrapper">
+                            <input type="text" id="name" name="name" class="glow-input-hidden" placeholder="Your Name" required>
+                            <div class="glow-input-display">
+                                <span class="display-text"></span>
+                                <span class="custom-caret" style="display: none;"></span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="_replyto" class="form-control" placeholder="name@example.com" required>
+                        <div class="glow-input-wrapper">
+                            <input type="email" id="email" name="_replyto" class="glow-input-hidden" placeholder="name@example.com" required>
+                            <div class="glow-input-display">
+                                <span class="display-text"></span>
+                                <span class="custom-caret" style="display: none;"></span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -134,22 +146,39 @@
         const phoneModal = document.getElementById('phone-modal');
         const closeModal = document.getElementById('close-modal');
 
-        // Open Modal
         phoneLink.addEventListener('click', (e) => {
             e.preventDefault();
             phoneModal.classList.add('is-visible');
         });
 
-        // Close Modal on Cancel Button
         closeModal.addEventListener('click', () => {
             phoneModal.classList.remove('is-visible');
         });
 
-        // Close Modal when clicking outside the content box
         phoneModal.addEventListener('click', (e) => {
             if (e.target === phoneModal) {
                 phoneModal.classList.remove('is-visible');
             }
+        });
+    </script>
+
+    <script>
+        document.querySelectorAll('.glow-input-wrapper').forEach(wrapper => {
+            const hiddenInput = wrapper.querySelector('.glow-input-hidden');
+            const displayText = wrapper.querySelector('.display-text');
+            const caret = wrapper.querySelector('.custom-caret');
+
+            hiddenInput.addEventListener('input', () => {
+                displayText.textContent = hiddenInput.value;
+            });
+
+            hiddenInput.addEventListener('focus', () => {
+                caret.style.display = 'inline-block';
+            });
+
+            hiddenInput.addEventListener('blur', () => {
+                caret.style.display = 'none';
+            });
         });
     </script>
 
