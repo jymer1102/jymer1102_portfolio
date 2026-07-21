@@ -1037,3 +1037,8 @@ a, button, .nav-cta, .btn-primary, select, input[type="submit"], .submit-btn {
     margin-right: 6px;
     color: var(--accent-bright); /* Gives the icons your electric blue theme tint */
 }
+
+.connect-label i {
+    margin-right: 6px;
+    color: var(--accent-bright);
+}
