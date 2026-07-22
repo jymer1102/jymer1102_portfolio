@@ -1234,12 +1234,16 @@ color: var(--text-1);
   -------------------------------------------------------------------------- */
 .playground-wrapper {
 width: 100%;
-max-width: 1120px;
+max-width: 1300px;
 margin: 0 auto;
 background: linear-gradient(160deg, var(--bg-card-from), var(--bg-card-to));
 border: 1px solid var(--border);
 border-radius: var(--radius-lg);
 overflow: hidden;
+}
+
+#playground-container {
+max-width: 1300px;
 }
 
 .playground-toolbar {
@@ -1320,7 +1324,7 @@ border-bottom: 1px solid var(--border);
 .playground-editor {
 flex: 1;
 width: 100%;
-min-height: 220px;
+min-height: 300px;
 resize: vertical;
 border: none;
 outline: none;
@@ -1356,6 +1360,10 @@ border: none;
 background: #ffffff;
 }
 
+.playground-preview--large {
+height: 640px;
+}
+
 @media (max-width: 860px) {
 .playground-editors {
 grid-template-columns: 1fr;
@@ -1363,5 +1371,21 @@ grid-template-columns: 1fr;
 
 .playground-editor {
 min-height: 160px;
+}
+
+.playground-preview--large {
+height: 480px;
+}
+}
+
+@media (max-width: 560px) {
+.playground-preview--large {
+height: 380px;
+}
+}
+
+@media (max-width: 400px) {
+.playground-preview--large {
+height: 300px;
 }
 }
