@@ -59,6 +59,20 @@
 --ease: cubic-bezier(0.22, 0.8, 0.28, 1);
 }
 
+/* Light theme overrides — applied when <html data-theme="light"> */
+:root[data-theme="light"] {
+--bg: #f4f5f8;
+--bg-raised: #ffffff;
+--bg-card-from: #ffffff;
+--bg-card-to: #edeff3;
+--border: rgba(10, 10, 12, 0.09);
+--border-hover: rgba(30, 86, 224, 0.85);
+
+--text-1: #15151a;
+--text-2: #46464f;
+--text-3: #74747d;
+}
+
 /* --------------------------------------------------------------------------
   2. Global Reset & Base
   -------------------------------------------------------------------------- */
@@ -269,6 +283,35 @@ cursor: pointer;
 transition: color 0.25s var(--ease);
 }
 
+.nav-left {
+display: flex;
+align-items: center;
+gap: 16px;
+}
+
+.theme-toggle {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 36px;
+height: 36px;
+border-radius: 50%;
+border: 1px solid var(--border);
+background: var(--bg-raised);
+color: var(--text-2);
+font-size: 0.95rem;
+cursor: pointer;
+transition: border-color 0.25s var(--ease), color 0.25s var(--ease), box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
+flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+border-color: var(--border-hover);
+color: var(--accent-bright);
+box-shadow: 0 0 12px var(--accent-glow);
+transform: scale(1.06);
+}
+
 .logo:hover {
 color: var(--accent-bright);
 }
@@ -355,11 +398,11 @@ position: absolute;
 inset: 0;
 background: linear-gradient(
 180deg,
-rgba(10, 10, 12, 0) 0%,
-rgba(10, 10, 12, 0) 40%,
-rgba(10, 10, 12, 0.35) 62%,
-rgba(10, 10, 12, 0.7) 78%,
-rgba(10, 10, 12, 0.92) 90%,
+color-mix(in srgb, var(--bg) 0%, transparent) 0%,
+color-mix(in srgb, var(--bg) 0%, transparent) 40%,
+color-mix(in srgb, var(--bg) 35%, transparent) 62%,
+color-mix(in srgb, var(--bg) 70%, transparent) 78%,
+color-mix(in srgb, var(--bg) 92%, transparent) 90%,
 var(--bg) 100%
 );
 }
@@ -1085,11 +1128,11 @@ transform: translate(-50%, -6px);
 }
 
 html, body {
-cursor: url('/portfolio/images/cursor/custom-j-cursor.png') 0 0, default;
+cursor: url('/jymer1102_portfolio/images/cursor/custom-j-cursor.png') 0 0, default;
 }
 
 a, button, .nav-cta, .btn-primary, select, input[type="submit"], .submit-btn {
-cursor: url('/portfolio/images/cursor/custom-j-cursor-pointer.png') 0 0, pointer;
+cursor: url('/jymer1102_portfolio/images/cursor/custom-j-cursor-pointer.png') 0 0, pointer;
 }
 
 /* Phone Action Modal */
