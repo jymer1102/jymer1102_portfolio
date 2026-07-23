@@ -101,7 +101,13 @@ document.documentElement.setAttribute('data-theme', 'dark');
 
 <div class="playground-preview-wrap">
 <div class="playground-preview-label">Preview</div>
-<iframe id="preview-frame" class="playground-preview playground-preview--large" title="Live code preview" sandbox="allow-scripts allow-modals allow-popups" referrerpolicy="no-referrer"></iframe>
+<iframe id="preview-frame" 
+        class="playground-preview playground-preview--large" 
+        title="Live code preview" 
+        sandbox="allow-scripts allow-modals allow-popups allow-same-origin allow-forms allow-downloads" 
+        allow="camera; microphone; display-capture; autoplay; clipboard-write" 
+        referrerpolicy="no-referrer">
+</iframe>
 </div>
 
 </div>
