@@ -278,7 +278,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 padding: 18px 8%;
-background-color: rgba(10, 10, 12, 0.72);
+background-color: var(--nav-bg);
 backdrop-filter: blur(14px);
 -webkit-backdrop-filter: blur(14px);
 position: fixed;
@@ -542,6 +542,37 @@ order: 2;
 color: var(--text-2);
 font-size: 1.05rem;
 order: 3;
+}
+
+/* --------------------------------------------------------------------------
+  7b. 404 / Error Page
+  Compact variant of .page-header so the "return home" card sits on screen
+  right away — no min-height:100vh, no scroll needed to see it.
+  -------------------------------------------------------------------------- */
+.page-header.error-header {
+min-height: auto;
+padding: 140px 24px 24px;
+}
+
+.container.error-main {
+display: flex;
+justify-content: center;
+padding-top: 0;
+padding-bottom: 60px;
+}
+
+.error-card {
+text-align: center;
+max-width: 500px;
+flex: none;
+}
+
+.error-card p {
+margin-bottom: 28px;
+}
+
+.error-footer {
+margin-top: 0;
 }
 
 /* --------------------------------------------------------------------------
@@ -1153,11 +1184,11 @@ transform: translate(-50%, -6px);
 }
 
 html, body {
-cursor: url('/jymer1102_portfolio/images/cursor/custom-j-cursor.png') 0 0, default;
+cursor: url('/portfolio/images/cursor/custom-j-cursor.png') 0 0, default;
 }
 
 a, button, .nav-cta, .btn-primary, select, input[type="submit"], .submit-btn {
-cursor: url('/jymer1102_portfolio/images/cursor/custom-j-cursor-pointer.png') 0 0, pointer;
+cursor: url('/portfolio/images/cursor/custom-j-cursor-pointer.png') 0 0, pointer;
 }
 
 /* Phone Action Modal */
