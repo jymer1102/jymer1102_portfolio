@@ -56,23 +56,23 @@ permalink: /404.html
         </div>
     </nav>
 
-    <header class="page-header" data-aos="fade-up" data-aos-duration="900" style="min-height: 60vh;">
+    <header class="page-header error-header" data-aos="fade-up" data-aos-duration="900">
         <p class="eyebrow">portfolio / system error</p>
         <h1 class="glow-text">404<span class="cursor">_</span></h1>
         <p class="subtitle">Looks like this page got lost in the void.</p>
     </header>
 
-    <main class="container reveal-on-scroll" id="error-container" style="display: flex; justify-content: center; padding-top: 0;">
-        
-        <div class="split-card js-interactive-container" data-aos="fade-up" data-aos-duration="800" style="text-align: center; max-width: 500px; flex: none;">
+    <main class="container error-main" id="error-container">
+
+        <div class="split-card error-card js-interactive-container" data-aos="fade-up" data-aos-duration="800">
             <h3>Path Diverted</h3>
-            <p style="margin-bottom: 28px;">The link you clicked might be broken, or the page may have been removed. Let's get you back to home.</p>
+            <p>The link you clicked might be broken, or the page may have been removed. Let's get you back to home.</p>
             <a href="{{ '/' | relative_url }}" class="submit-btn" style="text-decoration: none; width: auto; padding: 12px 32px;">Return to Home</a>
         </div>
 
     </main>
 
-    <footer style="margin-top: 100px;">jymer1102 — built with care.</footer>
+    <footer class="error-footer">jymer1102 — built with care.</footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
