@@ -1318,7 +1318,6 @@ border: none;
 color: var(--text-3);
 font-family: var(--font-mono);
 font-size: 0.85rem;
-cursor: pointer;
 margin-top: 8px;
 transition: color 0.2s var(--ease);
 }
@@ -1376,7 +1375,6 @@ border-radius: var(--radius-sm);
 border: 1px solid var(--border);
 background: var(--bg-raised);
 color: var(--text-1);
-cursor: pointer;
 transition: border-color 0.25s var(--ease), color 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
 
