@@ -1287,11 +1287,13 @@ gap: 8px;
 padding: 12px 16px;
 border-radius: var(--radius-md);
 font-weight: 600;
+font-size: 1rem;
 text-decoration: none;
 font-family: var(--font-body);
 border: 1px solid var(--border);
 background: var(--bg-raised);
 color: var(--text-1);
+outline: none;
 transition: all 0.25s var(--ease);
 }
 
