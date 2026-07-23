@@ -960,6 +960,35 @@ animation: caretBlink 1s infinite;
 0%, 45% { opacity: 1; }
 50%, 100% { opacity: 0; }
 }
+
+/* Multi-line variant of the glow-caret input, used for the message textarea */
+.glow-textarea-wrapper {
+display: block;
+}
+
+.glow-textarea-hidden {
+resize: none;
+min-height: 120px;
+max-height: 400px;
+overflow-y: auto;
+font-family: var(--font-body);
+line-height: 1.6;
+}
+
+.glow-textarea-display {
+display: block;
+align-items: normal;
+white-space: pre-wrap;
+word-wrap: break-word;
+min-height: 120px;
+max-height: 400px;
+overflow-y: auto;
+line-height: 1.6;
+}
+
+.glow-textarea-display .custom-caret {
+vertical-align: text-bottom;
+}
 /* --------------------------------------------------------------------------
   11. Footer
   -------------------------------------------------------------------------- */
@@ -1391,6 +1420,7 @@ font-size: 0.85rem;
 line-height: 1.6;
 padding: 16px;
 tab-size: 2;
+caret-color: var(--accent-bright);
 }
 
 .playground-preview-wrap {
