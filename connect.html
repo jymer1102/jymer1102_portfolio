@@ -130,7 +130,12 @@ document.documentElement.setAttribute('data-theme', 'dark');
 
 <div class="form-group">
 <label for="message">Message</label>
-<textarea id="message" name="message" class="form-control" placeholder="Write your message here..." required></textarea>
+<div class="glow-input-wrapper glow-textarea-wrapper">
+<textarea id="message" name="message" class="glow-input-hidden glow-textarea-hidden" placeholder="Write your message here..." required></textarea>
+<div class="glow-input-display glow-textarea-display">
+<span class="display-text"></span><span class="custom-caret" style="display: none;"></span>
+</div>
+</div>
 </div>
 
 <input type="hidden" name="_subject" value="New message from jymer1102.me!">
@@ -195,10 +200,16 @@ phoneModal.classList.remove('is-visible');
 document.querySelectorAll('.glow-input-wrapper').forEach(wrapper => {
 const hiddenInput = wrapper.querySelector('.glow-input-hidden');
 const displayText = wrapper.querySelector('.display-text');
+const displayBox = wrapper.querySelector('.glow-input-display');
 const caret = wrapper.querySelector('.custom-caret');
 
 hiddenInput.addEventListener('input', () => {
 displayText.textContent = hiddenInput.value;
+displayBox.scrollTop = hiddenInput.scrollTop;
+});
+
+hiddenInput.addEventListener('scroll', () => {
+displayBox.scrollTop = hiddenInput.scrollTop;
 });
 
 hiddenInput.addEventListener('focus', () => {
