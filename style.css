@@ -693,7 +693,7 @@ text-shadow: none;
 
 .coming-soon {
 opacity: 0.85;
-cursor: default;
+cursor: url('/portfolio/images/cursor/custom-j-cursor.png') 0 0, default;
 }
 
 /* --------------------------------------------------------------------------
